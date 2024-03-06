@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+{% csrf_token %}
+{{form}}
+<button type="submit" class="btn btn-primary">Percentage</button>
+<br/>
+Output Total
+    <input type="text" value="{{tol}}">
+    Percentage
+    <input type="text" value="{{per}}">
+    
+<br/>
+<br/>
+{% endblock  %}

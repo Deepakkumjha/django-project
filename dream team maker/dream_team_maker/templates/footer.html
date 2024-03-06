@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form method="get">
+    {% csrf_token %}
+  <input type="text" name="servicename" value=""/>
+  <input type="submit" value="search"/>
+  </form>
+  {%for n in serviceData%}
+    <div class="card" style="width: 18rem;">
+      
+      
+        <div class="card-body">
+          
+          <h5 class="service_icon">{{n.service_icon}}</h5>
+          <h6 class="service_title">{{n.service_object}}</h6>
+          <p class="service_des">{{n.service_des}}</p>
+          <br/>
+          
+          
+        </div>
+    
+      </div>
+      {%empty%}
+      no data found
+      {%endfor%}
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if serviceData.has_previous %}
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="/?page=1">1</a></li>
+          {%endif%}
+          <li class="page-item"><a class="page-link" href="/?page{{serviceData_previous_page_number}}">2</a></li>
+          
+        
+        </ul>
+      </nav>
+      
+      <br/>
+      
+      
+</body>
+</html>

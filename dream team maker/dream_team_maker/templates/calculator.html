@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <select name="opr">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </selext>
+    Output
+    <input type="text" value="{{output}}">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock  %}
